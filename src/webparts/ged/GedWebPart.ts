@@ -122,36 +122,6 @@ export default class GedWebPart extends BaseClientSideWebPart<IGedWebPartProps> 
                 </div>
             </div>
 
-            <div id="blocDocument">
-                <div class="form-row">
-                  <div class="form-group col-sm-12">
-                      <label>Fiche de vigilance</label>
-                      <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="ficheVigilance" required>
-                          <label class="custom-file-label" for="ficheVigilance">Choose file...</label>
-                      </div>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-sm-12">
-                      <label>Piece d'identite</label>
-                      <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="pieceIdentite" required>
-                          <label class="custom-file-label" for="pieceIdentite">Choose file...</label>
-                      </div>
-                  </div>
-                </div>
-                <div class="form-row">
-                  <div class="form-group col-sm-12">
-                      <label>Cheque</label>
-                      <div class="custom-file">
-                          <input type="file" class="custom-file-input" id="cheque" required>
-                          <label class="custom-file-label" for="cheque">Choose file...</label>
-                      </div>
-                  </div>
-                </div>
-            </div>
-
         </div>
 
         <div class="card-footer text-right">
@@ -194,7 +164,7 @@ export default class GedWebPart extends BaseClientSideWebPart<IGedWebPartProps> 
         }
       });
 
-      
+
 
       $("#btnReset").click(() => {
         $("#loading").empty().hide();
@@ -202,8 +172,57 @@ export default class GedWebPart extends BaseClientSideWebPart<IGedWebPartProps> 
     });
   }
 
-  private setText(): void {
-  }
+  /*private SaveItemToList(): void {
+    debugger;
+    const body: string = JSON.stringify({
+
+      'Title': document.getElementById('idTitle')["value"],
+
+      'CustName': document.getElementById('idCustName')["value"],
+
+      'CustGender': document.getElementById('idCustGender')["value"],
+
+      'CustNumber': document.getElementById('idCustNumber')["value"],
+
+      'CustCategory': document.getElementById('idCustCategory')["value"],
+
+      'CustMobileNumber': document.getElementById('idCustMobileNumber')["value"],
+
+      'CustCity': document.getElementById('idCustCity')["value"],
+
+      'Remark': document.getElementById('idRemark')["value"]
+
+    });
+
+    this.context.spHttpClient.post(`${this.context.pageContext.web.absoluteUrl}/_api/web/lists/getbytitle('${this.Listname}')/items`,
+
+      SPHttpClient.configurations.v1,
+
+      {
+
+        headers: {
+
+          'Accept': 'application/json;odata=nometadata',
+
+          'Content-type': 'application/json;odata=nometadata',
+
+          'odata-version': ''
+
+        },
+
+        body: body
+
+      }).then((response: SPHttpClientResponse): Promise<IListItem> => {
+
+        return response.json();
+
+      }).then((item: IListItem): void => {
+
+      }, (error: any): void => {
+        alert(`${error}`);
+      });
+
+  }*/
 
   protected get dataVersion(): Version {
     return Version.parse('1.0');
