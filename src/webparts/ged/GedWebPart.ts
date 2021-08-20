@@ -126,12 +126,13 @@ export default class GedWebPart extends BaseClientSideWebPart<IGedWebPartProps> 
 
         <div class="card-footer text-right">
             <button class="btn btn-success" type="button" id="btnSave">Enregistrer</button>
-            <button class="btn btn-danger" type="button" id="btnReset">Reset</button>
+            <button class="btn btn-outline-secondary" type="button" id="btnReset">Reset</button>
         </div>
     </div>
 </div>`;
 
     $(document).ready(() => {
+
       $("#blocRetrait").hide();
       $("#blocVersement").hide();
 
@@ -173,55 +174,35 @@ export default class GedWebPart extends BaseClientSideWebPart<IGedWebPartProps> 
   }
 
   /*private SaveItemToList(): void {
+    
     debugger;
+
     const body: string = JSON.stringify({
-
       'Title': document.getElementById('idTitle')["value"],
-
-      'CustName': document.getElementById('idCustName')["value"],
-
+      'ReferenceClient': document.getElementById('idCustName')["value"],
       'CustGender': document.getElementById('idCustGender')["value"],
-
       'CustNumber': document.getElementById('idCustNumber')["value"],
-
       'CustCategory': document.getElementById('idCustCategory')["value"],
-
       'CustMobileNumber': document.getElementById('idCustMobileNumber')["value"],
-
       'CustCity': document.getElementById('idCustCity')["value"],
-
       'Remark': document.getElementById('idRemark')["value"]
-
     });
 
-    this.context.spHttpClient.post(`${this.context.pageContext.web.absoluteUrl}/_api/web/lists/getbytitle('${this.Listname}')/items`,
-
+    this.context.spHttpClient.post(`${this.context.pageContext.web.absoluteUrl}/_api/web/lists/getbytitle('Demandes')/items`,
       SPHttpClient.configurations.v1,
-
       {
-
         headers: {
-
           'Accept': 'application/json;odata=nometadata',
-
           'Content-type': 'application/json;odata=nometadata',
-
           'odata-version': ''
-
         },
-
         body: body
-
       }).then((response: SPHttpClientResponse): Promise<IListItem> => {
-
         return response.json();
-
       }).then((item: IListItem): void => {
-
-      }, (error: any): void => {
+      },(error: any): void => {
         alert(`${error}`);
       });
-
   }*/
 
   protected get dataVersion(): Version {
